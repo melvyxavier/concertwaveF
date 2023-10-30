@@ -1,0 +1,274 @@
+<style>
+    /* Importing Google font - Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Alfa+Slab+One&family=Averia+Serif+Libre:wght@300&family=Bellefair&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;900&family=Coiny&family=Cormorant+Garamond:wght@300&family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Domine:wght@700&family=Great+Vibes&family=Gruppo&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@700&family=Mate+SC&family=Montserrat&family=Philosopher&family=Playfair+Display:wght@900&family=Pompiere&family=Raleway&family=Righteous&family=Roboto+Slab:wght@500&family=Rubik+Wet+Paint&family=Shadows+Into+Light&family=Yesteryear&family=Ysabeau+Office&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Alfa+Slab+One&family=Averia+Serif+Libre:wght@300&family=Bellefair&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;900&family=Coiny&family=Cormorant+Garamond:wght@300&family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Domine:wght@700&family=Great+Vibes&family=Gruppo&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@700&family=Mate+SC&family=Montserrat&family=Philosopher&family=Playfair+Display:wght@900&family=Pompiere&family=Raleway&family=Righteous&family=Roboto+Slab:wght@500&family=Rock+Salt&family=Rubik+Wet+Paint&family=Shadows+Into+Light&family=Yesteryear&family=Ysabeau+Office&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Aladin&family=Alfa+Slab+One&family=Averia+Serif+Libre:wght@300&family=Bellefair&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;900&family=Coiny&family=Cormorant+Garamond:wght@300&family=DM+Serif+Display&family=Dancing+Script:wght@700&family=Domine:wght@700&family=Great+Vibes&family=Gruppo&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@700&family=Mate+SC&family=Montserrat&family=Philosopher&family=Playfair+Display:wght@900&family=Pompiere&family=Raleway&family=Righteous&family=Roboto+Slab:wght@500&family=Rock+Salt&family=Rubik+Wet+Paint&family=Shadows+Into+Light&family=Yesteryear&family=Ysabeau+Office&display=swap');
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Philosopher', sans-serif;
+
+    }
+
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    header .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navbar .logo {
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 2.9rem;
+        text-decoration: none;
+    }
+
+
+
+    .hero-section {
+        height: 100vh;
+        background-image: url("https://i.postimg.cc/T3t6HHWM/wallpaperflare-com-wallpaper-2.jpg");
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        /* opacity: 0.5; */
+    }
+
+    .hero-section .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        color: #000000;
+
+
+    }
+
+    .hero-section .content h3 {
+
+
+        /* background: #ffffff44; */
+        margin-left: 150px;
+        text-align: center;
+        font-size: 1.5rem;
+        max-width: 900px;
+        line-height: 50px;
+        margin-top: -40px;
+        font-family: 'Rock Salt', cursive;
+        padding: 0px;
+
+    }
+
+    .hero-section .content p {
+        /* text-align: center; */
+        max-width: 600px;
+        color: #C06B3E;
+        /* margin-top: 15px; */
+        /* margin-left: 300px; */
+        /* background: #ffffff85; */
+        /* font-size: 1.1rem; */
+        font-weight: 900;
+        letter-spacing: 0.3rem;
+        position: fixed;
+        bottom: -87px;
+        /* font-family: 'Rock Salt', cursive; */
+        font-family: 'Philosopher', sans-serif;
+
+        /* font-family: 'Aladin', cursive;  */
+    }
+
+    .hero-section .content button {
+        background: #C06B3E;
+        margin-left: 500px;
+        padding: 12px 30px;
+        border: rgb(0, 0, 0) solid 2px;
+        font-size: 1rem;
+        border-radius: 10px;
+        margin-top: 20px;
+        cursor: pointer;
+        font-weight: 900;
+        transition: 0.2s ease;
+    }
+
+    .hero-section .content button:hover {
+        color: #000000;
+        background: #ffffff4a;
+    }
+
+    #w2 {
+        height: 30px;
+        margin-right: 130px;
+        color: white;
+        width: 50%;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    #w2:hover {
+        color: #ffffff;
+        border: #C06B3E 1px solid;
+    }
+
+
+    #close-menu-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+        display: none;
+    }
+
+    #hamburger-btn {
+        color: #fff;
+        cursor: pointer;
+        display: none;
+    }
+
+    @media (max-width: 1260px) {
+        header {
+            padding: 10px;
+        }
+
+        header .navbar {
+            align-items: start;
+        }
+
+        header.show-mobile-menu::before {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .navbar .logo {
+            font-size: 1.7rem;
+        }
+
+        #w2 {
+            align-items: end;
+            margin-right: 70px;
+            margin-top: 10px;
+        }
+
+
+
+        #hamburger-btn,
+        #close-menu-btn {
+            display: block;
+        }
+
+
+
+        header.show-mobile-menu .navbar .menu-links {
+            left: 0;
+        }
+
+        .navbar a {
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .hero-section .content {
+            text-align: center;
+        }
+
+        .hero-section .content :is(h3, p) {
+            max-width: 100%;
+        }
+
+        .hero-section .content h3 {
+            font-size: 1.2rem;
+            margin-left: 0;
+            line-height: 30px;
+            font-weight: 700;
+            padding: 35px;
+            margin-top: -35px;
+        }
+
+        .hero-section .content p {
+            display: none;
+            margin-left: 0;
+        }
+
+        .hero-section .content button {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo" href="#">ConcertWave</a>
+            <div class="dropdown">
+                <button id="w2" class="btn btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    LogIn
+                </button>
+                <ul class="dropdown-menu p-2" style="background-color: #ffffff;min-width: 3rem;">
+                    <li><a style="color: #000000;" class="dropdown-item" routerLink="/user-login">LogIn as User</a></li>
+                    <li><a style="color: #000000;" class="dropdown-item" routerLink="/admin-login">LogIn as Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="content">
+
+            <h3> Get ready to ride the
+                sound waves of live music with us! <br>Your next best-night-ever is waiting. <br>
+                And we have the tickets.</h3>
+
+            <p>
+                <!-- <span style="font-size: 100px;">Make</span> 
+                <span style="font-size: 150px;font-family: 'Rock Salt', cursive;">every</span> 
+                <span>night</span>
+                 <span>a</span> -->
+                <span style="font-size: 160px;font-family: 'Aladin', cursive;margin-left:-52px">Celebration</span>
+                <span style="font-size: 165px;font-family: 'Rock Salt', cursive;">of</span>
+                <span style="font-size: 200px;font-family: 'Aladin', cursive;margin-left: -30px;">sound</span>
+            </p>
+
+
+        </div>
+    </section>
+
+    <body>

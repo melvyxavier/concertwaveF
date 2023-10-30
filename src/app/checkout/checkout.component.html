@@ -1,0 +1,475 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" [ngClass]="{'sticky': isSticky}">
+            <h2 class="logo"><a routerLink="/user-home">ConcertWave</a></h2>
+            <input type="checkbox" id="menu-toggler">
+            <label for="menu-toggler" id="hamburger-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z" />
+                </svg>
+            </label>
+            <ul class="all-links">
+                <li><a routerLink="/my-bookings">My Bookings</a></li>
+                <li (click)="profile()"><a href="#services" data-bs-toggle="modal"
+                        data-bs-target="#profilecheck">Profile</a></li>
+                <li><a (click)="Logout()" class="me-5" href="#portfolio">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img style="height: 250px;" src={{cdata.image}} class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container mt-5 mb-5">
+            <div class="container">
+
+                <h1 style="color: #dc6a39;" class="text-center">Ticket Booking</h1>
+                <form [formGroup]="ticketbookingForm" class="text-center">
+                    <div class="form-group mt-3">
+
+                        <input formControlName="email"
+                            style="text-align: center;width: 50%;border: 1px solid #7f2549;border-radius: 10px;height: 30px;"
+                            type="text" placeholder="Enter Your Email" id="name" name="ename" required>
+                    </div>
+
+                    <div
+                        *ngIf="this.ticketbookingForm.get('email')?.errors&&this.ticketbookingForm.get('email')?.touched">
+                        <p style="font-size: 12px;" class="text-danger">* Invalid Email</p>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input formControlName="mobile"
+                            style="text-align: center;width: 50%;border: 1px solid #7f2549;border-radius: 10px;height: 30px;"
+                            type="text" placeholder="Enter Your Mobile no." id="nae" name="ene" required>
+                    </div>
+
+                    <div
+                        *ngIf="this.ticketbookingForm.get('mobile')?.errors&&this.ticketbookingForm.get('mobile')?.touched">
+                        <p style="font-size: 12px;" class="text-danger">* Invalid mobile number</p>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input formControlName="ticketCount"
+                            style="text-align: center;width: 50%;border: 1px solid #7f2549;border-radius: 10px;height: 30px;"
+                            type="text" placeholder="How many Tickets?" id="na" name="en" required>
+                    </div>
+
+                    <div
+                        *ngIf="this.ticketbookingForm.get('ticketCount')?.errors&&this.ticketbookingForm.get('ticketCount')?.touched">
+                        <p style="font-size: 12px;" class="text-danger">* Invalid</p>
+                    </div>
+
+
+                    <div><button (click)="bookTicket()" class="mt-3"
+                            style="border: 1px solid #7f2549;width: 30%;background-color: #fdf6f0;height: 30px;"
+                            type="submit">Book Tickets</button></div>
+                </form>
+
+                <div class="text-center p-5">
+                    <h6 [ngClass]="msgClr?'mg':'mr'">{{message}}</h6>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <section>
+        <div class="info container mb-5 text-light">
+            <h3><i class="fa-solid fa-tachograph-digital me-2"></i>Electronic tickets</h3>
+            <p>These are e-tickets and will be delivered to your email address.</p>
+            <br>
+            <h3><i class="fa-regular fa-clock me-2"></i>In hand date</h3>
+            <p>Ticket delivered within 2-3 working days.</p>
+            <br>
+            <h3><i class="fa-regular fa-calendar-check me-2"></i>{{cdata.Cname}}</h3>
+            <p>{{cdata.venue}}</p>
+            <p>{{cdata.dateTime}}</p>
+            <br>
+            <h3><i class="fa-solid fa-eye-slash me-2"></i>Limited view</h3>
+            <p>One or more of these seats have an obstructed or limited view.</p>
+
+            <br>
+            <h3><i class="fa-solid fa-note-sticky me-2"></i> Notes from the seller</h3>
+            <p>Mobile Entry Tickets. Must have smart device on hand to enter event. Limited or Obstructed View (printed
+                on ticket).</p>
+            <br>
+            <h3><i class="fa-solid fa-right-left me-2"></i>Returnable within 3 days</h3>
+            <br>
+            <h3><i class="fa-solid fa-square-check me-2"></i>Buyer Guarantee protected</h3>
+            <p>Every ticket is protected. If your event gets cancelled, we'll make it right.</p>
+            <br>
+        </div>
+    </section>
+
+    <footer>
+        <a routerLink="/user-home" class="footer-title">
+            <h6> Back to Home</h6>
+        </a>
+        <div class="footer-items">
+            <ul>
+                <h3>GET TO KNOW US</h3>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Rare Impact</a></li>
+                <li><a href="#">ConcertWave Bio</a></li>
+            </ul>
+            <ul>
+                <h3>CONNECT WITH US</h3>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+
+            <ul>
+                <h3>CUSTOMER SERVICE</h3>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Start a U.S. Return</a></li>
+                <li><a href="#">U.S. Gift Card Balance</a></li>
+                <li><a href="#">ConcertWave App Download</a></li>
+                <li><a href="#">Accessibility</a></li>
+            </ul>
+        </div>
+
+
+
+
+
+    </footer>
+
+    <div class="footerL">
+        <span>Copyright ©ConcertWave 2023</span>
+
+    </div>
+
+
+</body>
+
+<!-- -------------- -->
+<div class="modal" id="profilecheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Hi {{user}} </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/Nf6RGnyy/Follow-for-more.jpg" alt="Your Image" class="modal-image"
+                    style="width: 30%;">
+                <p><i class="fa-solid fa-user me-3"></i>{{user}}</p>
+                <p><i class="fa-solid fa-envelope me-3"></i>{{email}}</p>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal {
+        margin-left: 400px;
+    }
+
+    .modal-header {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 15px;
+    }
+
+    .modal-title {
+        margin: 0;
+    }
+
+    .modal-body {
+
+        padding: 15px;
+        text-align: center;
+
+    }
+
+    .modal-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .modal-footer {
+        background-color: #000000;
+        border-top: 1px solid #ddd;
+        padding: 10px 15px;
+    }
+
+    .btn-close {
+        color: #333;
+    }
+
+    .btn-primary {
+        background-color: #da5e29;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn-secondary {
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+
+    }
+
+    .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgb(255, 255, 255);
+    }
+</style>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Philosopher', sans-serif;
+    }
+
+
+    body {
+        background: #000000;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #00000000;
+    }
+
+
+
+    .navbar {
+        display: flex;
+        padding: 0 10px;
+        max-width: 1300px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all 0.4s ease;
+    }
+
+    .sticky {
+        background-color: #000000;
+        padding: 0px 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .navbar input#menu-toggler {
+        display: none;
+    }
+
+    .navbar #hamburger-btn {
+        cursor: pointer;
+        display: none;
+    }
+
+    .navbar .all-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar .all-links li {
+        position: relative;
+        list-style: none;
+    }
+
+    .navbar .logo a {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 2.9rem;
+        text-decoration: none;
+    }
+
+    header a {
+        margin-left: 40px;
+        text-decoration: none;
+        color: #ffffff;
+        height: 100%;
+        padding: 20px 0;
+        display: inline-block;
+    }
+
+    header a:hover,
+    footer a:hover {
+        color: #ddd;
+    }
+
+    .checkout {
+        width: 100%;
+        margin-top: 100px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .checkout .form-group {
+        width: 80%;
+    }
+
+    .info {
+        padding: 50px;
+    }
+
+    .mg {
+        color: green;
+    }
+
+    .mr {
+        color: red;
+    }
+
+    footer {
+        background-color: #000000;
+        padding: 15px;
+        margin-left: 18px;
+
+
+    }
+
+    /* Footer */
+    .footer-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+        color: #ee8355;
+        font-size: 0.875rem;
+        font-weight: 600;
+        height: 60px;
+    }
+
+    .footer-items {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 0 auto;
+        background: #000000;
+    }
+
+    .footer-items h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ee8355;
+        margin: 20px 0 10px 0;
+    }
+
+    .footer-items ul {
+        list-style: none;
+        margin-bottom: 20px;
+    }
+
+    .footer-items li a {
+        color: #ee8355;
+        font-size: 0.875rem;
+    }
+
+    .footer-items li a:hover {
+        text-decoration: underline;
+    }
+
+
+    .footerL {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #000000;
+        padding: 20px 0;
+    }
+
+    .footerL div {
+        padding: 0 10px;
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footerL span {
+        color: #ee8355;
+    }
+
+    .footerL a {
+        padding: 0;
+    }
+
+    @media screen and (max-width: 860px) {
+        .navbar .all-links {
+            position: fixed;
+            left: -100%;
+            width: 300px;
+            display: block;
+            height: 100vh;
+            top: 75px;
+            background: #333;
+            transition: left 0.3s ease;
+        }
+
+        .navbar #menu-toggler:checked~.all-links {
+            left: 0;
+        }
+
+        .navbar .all-links li {
+            font-size: 18px;
+        }
+
+        .navbar #hamburger-btn {
+            display: block;
+        }
+
+        .modal {
+            margin-left: 0;
+        }
+
+        footer a {
+            height: 0;
+        }
+
+
+
+        .info {
+            padding: 10px;
+        }
+    }
+</style>

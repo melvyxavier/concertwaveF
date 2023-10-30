@@ -1,0 +1,260 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+
+
+
+</head>
+
+
+<body>
+    <div id="r4">
+        <header>
+            <nav class="navbar">
+                <a class="logo" href="">ConcertWave</a>
+            </nav>
+        </header>
+
+        <div id="e1" class="container text-center">
+            <h1 class="mt-3" id="q3">Admin</h1>
+
+            <i class="fa-solid fa-user-tie fa-2xl mt-3"></i>
+
+            <form [formGroup]="adminloginForm" class="mt-4 p-3" action="">
+                <div class="input">
+                    <input formControlName="auname" type="text" id="l5" name="username" placeholder="Enter Username"
+                        class="text-center">
+                </div>
+
+                <div *ngIf="this.adminloginForm.get('auname')?.errors&&this.adminloginForm.get('auname')?.touched">
+                    <p style="font-size: 12px;" class="text-danger">* Incorrect Username</p>
+                </div>
+
+
+                <div class="input">
+                    <input formControlName="apsw" type="password" name="pswd" placeholder="Enter Password" id="l6"
+                        class="text-center">
+                </div>
+
+                <div *ngIf="this.adminloginForm.get('apsw')?.errors&&this.adminloginForm.get('apsw')?.touched">
+                    <p style="font-size: 12px;" class="text-danger">* Incorrect Password</p>
+                </div>
+
+
+                <div class="mt-5">
+                    <button (click)="adminlogin()" id="b1" type="submit" class="btn btn w-100">Login</button>
+                    <br><br>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Philosopher', sans-serif;
+
+    }
+
+    /* #r4 {
+        position: relative;
+        /* background-color: rgba(0, 0, 0, 0.7); Background opacity */
+    /* height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+    } */
+
+    #r4::before {
+        content: "";
+        background-image: url("https://i.postimg.cc/7Z563x9W/wallpaperflare-com-wallpaper-2.jpg");
+        background-position: center;
+        background-size: cover;
+        /* filter: blur(2px); */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        opacity: 1.5;
+    }
+
+    body {
+        background-color: rgb(0, 0, 0);
+        z-index: -1;
+
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 5;
+    }
+
+
+
+    header .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navbar .logo {
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 2.9rem;
+        text-decoration: none;
+    }
+
+    #e1 {
+        color: rgb(255, 255, 255);
+        margin: 0 auto;
+        padding: 10px;
+        background-color: rgb(0, 0, 0);
+        /* Adjust the alpha value (0.8 in this case) to control opacity */
+        /* border-radius: 55px; */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.715);
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 400px;
+        z-index: 3;
+
+
+    }
+
+
+    #q5 {
+        text-align: center;
+        /* color: rgba(109, 129, 196, 0.744); */
+        display: block;
+        margin-top: 10px;
+
+    }
+
+    h1 {
+        position: relative;
+        font-weight: 500;
+        color: #ffffffbe;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 29px;
+
+    }
+
+
+
+
+    h1::before {
+        content: '';
+        position: absolute;
+        left: 39%;
+        bottom: 0;
+        font-size: 24px;
+        height: 3px;
+        width: 25px;
+        background: #db6c2c;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        color: rgb(255, 255, 255);
+
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        color: #ffffff;
+
+    }
+
+    input {
+
+        width: 100%;
+        outline: none;
+        border: none;
+        padding: 0px;
+        font-size: 16px;
+        font-weight: 500;
+        border-bottom: 2px solid #db6c2c;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        margin: 10px 0;
+        position: relative;
+
+    }
+
+
+    #b1 {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        background-color: #db6c2c;
+        color: #ffffff;
+        border-radius: 8px;
+        cursor: pointer;
+        /* border: 2px double rgb(255, 255, 255); */
+        /* letter-spacing: 0.8rem; */
+
+    }
+
+    #b1:hover {
+        background-color: #db6c2c97;
+        color: #ffffff;
+    }
+
+
+    @media (max-width: 1260px) {
+        header {
+            padding: 10px;
+        }
+
+        header .navbar {
+            align-items: start;
+        }
+
+        h1::before {
+            content: '';
+            position: absolute;
+            left: 35%;
+            bottom: 0;
+            height: 3px;
+            width: 15px;
+            background: #db6c2c;
+        }
+
+        header.show-mobile-menu::before {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .navbar .logo {
+            font-size: 1.7rem;
+        }
+    }
+</style>

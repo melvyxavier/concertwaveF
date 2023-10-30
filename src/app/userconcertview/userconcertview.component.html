@@ -1,0 +1,1000 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" [ngClass]="{'sticky': isSticky}">
+            <h2 class="logo"><a routerLink="/user-home">ConcertWave</a></h2>
+            <input type="checkbox" id="menu-toggler">
+            <label for="menu-toggler" id="hamburger-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z" />
+                </svg>
+            </label>
+            <ul class="all-links">
+                <li><a routerLink="/my-bookings">My Bookings</a></li>
+                <li (click)="profile()"><a href="#services" data-bs-toggle="modal"
+                        data-bs-target="#profilecheck">Profile</a></li>
+                <li><a (click)="Logout()" class="me-5" href="#portfolio">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img style="height: 250px;" src={{cdata.image}} class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="w2" class="text-center mt-5 text-light">
+            <h1 style="color: #ee8355;text-align: center;" class="text-center">{{cdata.Cname}}</h1>
+
+            <p style="color: #ee8355;text-align: center;" class="lead text-center">{{cdata.venue}}</p>
+            <p style="color: #ee8355;text-align: center;" class="lead text-center">{{cdata.dateTime}}</p>
+
+        </div>
+    </section>
+
+
+    <section id="e3" style="font-family: 'Bellefair', serif;" class="view">
+        <h1 style="color: #ee8355;text-align: center;" class="text-center mb-5 mt-5">Ticket Listings
+        </h1>
+
+        <div class="container">
+            <!-- ---------------------- -->
+            <div class="row mb-5">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="accordion accordion-flush me-1" id="accordionFlushExample">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/SKfb2x7F/7746.png" alt="">
+                                    $153 Each . Section 201, Row 139
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/X77Fb73z/7746-1.png" alt="">
+                                    $158 Each . Section 205, Row 238
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/NfQH880V/7746-2.png" alt="">
+                                    $189 Each . Section 125, Row 324
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseFour">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/hjFJXTw2/7746-3.png" alt="">
+                                    $215 Each . Section 65, Row 125
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                    aria-controls="flush-collapseFive">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/YSN7xF0n/7746-4.png" alt="">
+                                    $222 Each . Section 127, Row 167
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                    aria-controls="flush-collapseSix">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/gJvKjYM6/7746-5.png" alt="">
+                                    $320 Each . Section 347, Row 154
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSix" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                    aria-controls="flush-collapseSeven">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/YSN7xF0n/7746-4.png" alt="">
+                                    $289 Each . Section 237, Row 104
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseEight" aria-expanded="false"
+                                    aria-controls="flush-collapseEight">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/W4f4ZrHB/7746-6.png" alt="">
+                                    $350 Each . Section 227, Row 234
+                                </button>
+                            </h2>
+                            <div id="flush-collapseEight" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseNine" aria-expanded="false"
+                                    aria-controls="flush-collapseNine">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/YSN7xF0n/7746-4.png" alt="">
+                                    $365 Each . Section 125, Row 276
+                                </button>
+                            </h2>
+                            <div id="flush-collapseNine" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTen" aria-expanded="false"
+                                    aria-controls="flush-collapseTen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/YSN7xF0n/7746-4.png" alt="">
+                                    $320 Each . Section 233, Row 155
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ------------------------------------------- -->
+                <div class="col-lg-6 col-md-6">
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseEleven" aria-expanded="false"
+                                    aria-controls="flush-collapseEleven">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/2yWJGR8Q/7746-7.png" alt="">
+                                    $410 Each . Section 193, Row 120
+                                </button>
+                            </h2>
+                            <div id="flush-collapseEleven" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwelve" aria-expanded="false"
+                                    aria-controls="flush-collapseTwelve">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/CKtmQP2m/7746-9.png" alt="">
+                                    $435 Each . Section 252, Row 230
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwelve" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThirteen" aria-expanded="false"
+                                    aria-controls="flush-collapseThirteen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/2yWJGR8Q/7746-7.png" alt="">
+                                    $560 Each . Section 122, Row 170
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThirteen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFourteen" aria-expanded="false"
+                                    aria-controls="flush-collapseFourteen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/YqWknZyy/7746-11.png" alt="">
+                                    $589 Each . Section 110, Row 120
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFourteen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFifteen" aria-expanded="false"
+                                    aria-controls="flush-collapseFifteen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/k4S31tTR/7746-12.png" alt="">
+                                    $620 Each . Section 102, Row 107
+                                </button>
+                            </h2>
+                            <div id="flush-collapseFifteen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSixteen" aria-expanded="false"
+                                    aria-controls="flush-collapseSixteen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/MHzP7cNS/7746-13.png" alt="">
+                                    $950 Each . Section 113, Row 102
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSixteen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseSeventeen" aria-expanded="false"
+                                    aria-controls="flush-collapseSeventeen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/YqWknZyy/7746-11.png" alt="">
+                                    $930 Each . Section 101, Row 124
+                                </button>
+                            </h2>
+                            <div id="flush-collapseSeventeen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseEighteen" aria-expanded="false"
+                                    aria-controls="flush-collapseEighteen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/t4zh6SyY/7746-14.png" alt="">
+                                    $970 Each . Section 102, Row 119
+                                </button>
+                            </h2>
+                            <div id="flush-collapseEighteen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseNinteen" aria-expanded="false"
+                                    aria-controls="flush-collapseNinteen">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/MHzP7cNS/7746-13.png" alt="">
+                                    $945 Each . Section 126, Row 121
+                                </button>
+                            </h2>
+                            <div id="flush-collapseNinteen" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwenty" aria-expanded="false"
+                                    aria-controls="flush-collapseTwenty">
+
+                                    <img style="height: 100px;" src="https://i.postimg.cc/MHzP7cNS/7746-13.png" alt="">
+                                    $975 Each . Section 105, Row 125
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwenty" class="accordion-collapse collapse"
+                                data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <form class="mt-1 ms-2" action="">
+                                        <button (click)="checkOut(cid)"
+                                            style="border-radius: 5px;border: 1px #ee8355 solid;background-color: #000000;color: #ffffff;"
+                                            class="btn ms-3 p-1 mb-2 mt-1">Go to Checkout</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ----------------------- -->
+        </div>
+    </section>
+
+
+    <section>
+        <div>
+            <div id="q1" class="col-lg-12 col-md-12 col-sm-12 mt-5"><img style="height: 700px;"
+                    class="card-img-top mb-md-0" src="https://i.postimg.cc/W14FyGQH/download.png" alt="..." /></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="info container mb-5 text-light">
+            <h3><i class="fa-solid fa-tachograph-digital me-2"></i>Electronic tickets</h3>
+            <p>These are e-tickets and will be delivered to your email address.</p>
+            <br>
+            <h3><i class="fa-regular fa-clock me-2"></i>In hand date</h3>
+            <p>Ticket delivered within 2-3 working days.</p>
+            <br>
+            <h3><i class="fa-regular fa-calendar-check me-2"></i>{{cdata.Cname}}</h3>
+            <p>{{cdata.venue}}</p>
+            <p>{{cdata.dateTime}}</p>
+            <br>
+            <h3><i class="fa-solid fa-eye-slash me-2"></i>Limited view</h3>
+            <p>One or more of these seats have an obstructed or limited view.</p>
+
+            <br>
+            <h3><i class="fa-solid fa-note-sticky me-2"></i> Notes from the seller</h3>
+            <p>Mobile Entry Tickets. Must have smart device on hand to enter event. Limited or Obstructed View (printed
+                on ticket).</p>
+            <br>
+            <h3><i class="fa-solid fa-right-left me-2"></i>Returnable within 3 days</h3>
+            <br>
+            <h3><i class="fa-solid fa-square-check me-2"></i>Buyer Guarantee protected</h3>
+            <p>Every ticket is protected. If your event gets cancelled, we'll make it right.</p>
+            <br>
+        </div>
+    </section>
+
+    <footer>
+        <a routerLink="/user-home" class="footer-title">
+            <h6> Back to Home</h6>
+        </a>
+        <div class="footer-items">
+            <ul>
+                <h3>GET TO KNOW US</h3>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Rare Impact</a></li>
+                <li><a href="#">ConcertWave Bio</a></li>
+            </ul>
+            <ul>
+                <h3>CONNECT WITH US</h3>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+
+            <ul>
+                <h3>CUSTOMER SERVICE</h3>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Start a U.S. Return</a></li>
+                <li><a href="#">U.S. Gift Card Balance</a></li>
+                <li><a href="#">ConcertWave App Download</a></li>
+                <li><a href="#">Accessibility</a></li>
+            </ul>
+        </div>
+
+
+
+
+
+    </footer>
+
+    <div class="footerL">
+        <span>Copyright ©ConcertWave 2023</span>
+
+    </div>
+
+
+</body>
+
+<!-- -------------- -->
+<div class="modal" id="profilecheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Hi {{user}} </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/Nf6RGnyy/Follow-for-more.jpg" alt="Your Image" class="modal-image"
+                    style="width: 30%;">
+                <p><i class="fa-solid fa-user me-3"></i>{{user}}</p>
+                <p><i class="fa-solid fa-envelope me-3"></i>{{email}}</p>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal {
+        margin-left: 400px;
+    }
+
+    .modal-header {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 15px;
+    }
+
+    .modal-title {
+        margin: 0;
+    }
+
+    .modal-body {
+
+        padding: 15px;
+        text-align: center;
+
+    }
+
+    .modal-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .modal-footer {
+        background-color: #000000;
+        border-top: 1px solid #ddd;
+        padding: 10px 15px;
+    }
+
+    .btn-close {
+        color: #333;
+    }
+
+    .btn-primary {
+        background-color: #da5e29;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn-secondary {
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+
+    }
+
+    .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgb(255, 255, 255);
+    }
+</style>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Philosopher', sans-serif;
+    }
+
+
+    body {
+        background: #000000;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #00000000;
+    }
+
+
+
+    .navbar {
+        display: flex;
+        padding: 0 10px;
+        max-width: 1300px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all 0.4s ease;
+    }
+
+    .sticky {
+        background-color: #000000;
+        padding: 0px 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .navbar input#menu-toggler {
+        display: none;
+    }
+
+    .navbar #hamburger-btn {
+        cursor: pointer;
+        display: none;
+    }
+
+    .navbar .all-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar .all-links li {
+        position: relative;
+        list-style: none;
+    }
+
+    .navbar .logo a {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 2.9rem;
+        text-decoration: none;
+    }
+
+    header a {
+        margin-left: 40px;
+        text-decoration: none;
+        color: #ffffff;
+        height: 100%;
+        padding: 20px 0;
+        display: inline-block;
+    }
+
+    header a:hover,
+    footer a:hover {
+        color: #ddd;
+    }
+
+    #w2 {
+        margin-left: -80px;
+    }
+
+
+    #e3 {
+        width: 100%;
+        margin-left: 50px;
+
+    }
+
+    #e3 h1 {
+        margin-left: -180px;
+    }
+
+    .view .text {
+        /* padding: 20px; */
+        /* margin-top: -130px; */
+        color: white;
+        /* width: 10%; */
+    }
+
+
+    .accordion {
+        --bs-accordion-btn-bg: #000000;
+        --bs-accordion-btn-color: #ffffff;
+        --bs-accordion-active-bg: #000000;
+        --bs-accordion-active-color: #ffffff;
+        --bs-accordion-btn-focus-box-shadow: none;
+        --bs-accordion-bg: #ee8355;
+        --bs-accordion-color: #ffffff;
+        --bs-accordion-border-color: #ee8355;
+        --bs-accordion-button-icon-color: #ffffff;
+
+    }
+
+    .accordion-button:not(.collapsed) {
+        box-shadow: none;
+    }
+
+    .accordion-button {
+        border-bottom: none;
+        border-top: none;
+    }
+
+    .accordion-button:after {
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+    }
+
+    /* #q1 {
+        margin-left: 50px;
+    } */
+
+    .info {
+        padding: 50px;
+    }
+
+    footer {
+        background-color: #000000;
+        padding: 15px;
+        margin-left: 18px;
+
+
+    }
+
+    /* Footer */
+    .footer-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+        color: #ee8355;
+        font-size: 0.875rem;
+        font-weight: 600;
+        height: 60px;
+    }
+
+    .footer-items {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 0 auto;
+        background: #000000;
+    }
+
+    .footer-items h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ee8355;
+        margin: 20px 0 10px 0;
+    }
+
+    .footer-items ul {
+        list-style: none;
+        margin-bottom: 20px;
+    }
+
+    .footer-items li a {
+        color: #ee8355;
+        font-size: 0.875rem;
+    }
+
+    .footer-items li a:hover {
+        text-decoration: underline;
+    }
+
+
+    .footerL {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #000000;
+        padding: 20px 0;
+    }
+
+    .footerL div {
+        padding: 0 10px;
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footerL span {
+        color: #ee8355;
+    }
+
+    .footerL a {
+        padding: 0;
+    }
+
+    @media screen and (max-width: 860px) {
+        .navbar .all-links {
+            position: fixed;
+            left: -100%;
+            width: 300px;
+            display: block;
+            height: 100vh;
+            top: 75px;
+            background: #333;
+            transition: left 0.3s ease;
+        }
+
+        .navbar #menu-toggler:checked~.all-links {
+            left: 0;
+        }
+
+        .navbar .all-links li {
+            font-size: 18px;
+        }
+
+        .navbar #hamburger-btn {
+            display: block;
+        }
+
+        #e3 {
+            margin-left: 0;
+        }
+
+        footer a {
+            height: 0;
+        }
+
+        .modal {
+            margin-left: 0;
+        }
+
+        #e3 h1 {
+            margin-left: 0;
+        }
+
+        #w2 {
+            margin-left: 0;
+        }
+
+        #q1 {
+            margin-left: 25px;
+        }
+
+        .info {
+            padding: 10px;
+        }
+    }
+</style>

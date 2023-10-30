@@ -1,0 +1,328 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+
+</head>
+
+
+
+<body>
+    <header>
+        <nav class="navbar" [ngClass]="{'sticky': isSticky}">
+            <h2 class="logo"><a routerLink="/admin-home">ConcertWave</a></h2>
+            <input type="checkbox" id="menu-toggler">
+            <label for="menu-toggler" id="hamburger-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z" />
+                </svg>
+            </label>
+            <ul class="all-links">
+                <li><a style="color:#ffffff;font-weight: 700;" href="#home">Welcome Admin.</a></li>
+                <li><a routerLink="/admin-userMng">User management</a></li>
+                <li><a routerLink="/admin-manageconcert">Manage concerts</a></li>
+                <li><a class="me-5" routerLink="/admin-add">Sell</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <!-- <div class="container"> -->
+
+
+
+    <table class="container table table-striped-columns table-light p-5 mb-5">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th scope="row" style="text-align: center;font-size: 35px;">Manage Concerts</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Venue</th>
+                <th scope="col">Category Id</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Price</th>
+                <th scope="col"><i class="fa-solid fa-gears"></i></th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of cdata, let j=index">
+                <th scope="row">{{j+1}}</th>
+                <td>{{i.Cname}}</td>
+                <td>{{i.venue}}</td>
+                <td>{{i.categoryId}}</td>
+
+                <td>{{i.dateTime}}</td>
+                <td class="border p-3">${{i.price}}</td>
+                <td>
+                    <button (click)="editconcert(i._id)" class="btn btn-warning mt-3 me-2"><i
+                            class="fa-solid fa-pen-to-square"></i></button>
+                    <button (click)="deleteconcert(i._id)" class="btn btn-danger mt-3"><i
+                            class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <!-- </div> -->
+
+    <footer>
+        <a routerLink="/admin-home" class="footer-title">
+            <h6> Back to Home</h6>
+        </a>
+        <div class="footer-items">
+            <ul>
+                <h3>GET TO KNOW US</h3>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Rare Impact</a></li>
+                <li><a href="#">ConcertWave Bio</a></li>
+            </ul>
+            <ul>
+                <h3>CONNECT WITH US</h3>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+
+            <ul>
+                <h3>CUSTOMER SERVICE</h3>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Start a U.S. Return</a></li>
+                <li><a href="#">U.S. Gift Card Balance</a></li>
+                <li><a href="#">ConcertWave App Download</a></li>
+                <li><a href="#">Accessibility</a></li>
+            </ul>
+        </div>
+
+
+
+
+
+    </footer>
+
+    <div class="footerL">
+        <span>Copyright ©ConcertWave 2023</span>
+
+    </div>
+
+
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Philosopher', sans-serif;
+    }
+
+    .container {
+        margin-top: 180px;
+        margin-left: 55px;
+    }
+
+    body {
+        background: #000000;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #00000000;
+    }
+
+
+
+    .navbar {
+        display: flex;
+        padding: 0 10px;
+        max-width: 1300px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all 0.4s ease;
+    }
+
+    .sticky {
+        background-color: #000000;
+        padding: 0px 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .navbar input#menu-toggler {
+        display: none;
+    }
+
+    .navbar #hamburger-btn {
+        cursor: pointer;
+        display: none;
+    }
+
+    .navbar .all-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar .all-links li {
+        position: relative;
+        list-style: none;
+    }
+
+
+
+    .navbar .logo a {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 2.9rem;
+        text-decoration: none;
+    }
+
+    header a {
+        margin-left: 40px;
+        text-decoration: none;
+        color: #ffffff;
+        height: 100%;
+        padding: 20px 0;
+        display: inline-block;
+    }
+
+    header a:hover,
+    footer a:hover {
+        color: #ddd;
+    }
+
+
+    footer {
+        background-color: #000000;
+        /* padding: 5px; */
+        /* text-align: center; */
+        margin-left: 108px;
+
+
+    }
+
+    /* Footer */
+    .footer-title {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+        color: #ee8355;
+        font-size: 0.875rem;
+        font-weight: 600;
+        height: 60px;
+    }
+
+    .footer-items {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 0 auto;
+        background: #000000;
+    }
+
+    .footer-items h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ee8355;
+        margin: 20px 0 10px 0;
+    }
+
+    .footer-items ul {
+        list-style: none;
+        margin-bottom: 20px;
+    }
+
+    .footer-items li a {
+        color: #ee8355;
+        font-size: 0.875rem;
+    }
+
+    .footer-items li a:hover {
+        text-decoration: underline;
+    }
+
+
+    .footerL {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #000000;
+        padding: 20px 0;
+    }
+
+    .footerL div {
+        padding: 0 10px;
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footerL span {
+        color: #ee8355;
+    }
+
+    .footerL a {
+        padding: 0;
+    }
+
+
+    @media screen and (max-width: 860px) {
+
+
+        .navbar .all-links {
+            position: fixed;
+            left: -100%;
+            width: 300px;
+            display: block;
+            height: 100vh;
+            top: 75px;
+            background: #333;
+            transition: left 0.3s ease;
+        }
+
+        .navbar #menu-toggler:checked~.all-links {
+            left: 0;
+        }
+
+        .navbar .all-links li {
+            font-size: 18px;
+        }
+
+        .navbar #hamburger-btn {
+            display: block;
+        }
+
+        .container {
+            margin-left: 0;
+        }
+    }
+</style>

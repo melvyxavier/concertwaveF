@@ -1,0 +1,847 @@
+<head>
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" [ngClass]="{'sticky': isSticky}">
+            <h2 class="logo"><a routerLink="/user-home">ConcertWave</a></h2>
+            <input type="checkbox" id="menu-toggler">
+            <label for="menu-toggler" id="hamburger-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z" />
+                </svg>
+            </label>
+            <ul class="all-links">
+                <li><a routerLink="/my-bookings">My Bookings</a></li>
+                <li (click)="profile()"><a href="#services" data-bs-toggle="modal"
+                        data-bs-target="#profilecheck">Profile</a></li>
+                <li><a (click)="Logout()" class="me-5" href="#portfolio">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="homepage" id="home">
+        <div class="content">
+            <div class="text">
+                <h1>CONCERT TICKETS</h1>
+                <p id="e3">
+                    TICKETS TO YOUR FAVORITE CONCERTS. <br>
+                    ALL RIGHT HERE. LET'S GO. </p>
+            </div>
+            <form class="d-flex" role="search">
+                <i class="fa-solid fa-magnifying-glass"></i><input [(ngModel)]="searchData" (keyup)="accessData($event)"
+                    id="z2" name="searchData" class="form-control me-2" type="search"
+                    placeholder="What do you want to see live?" aria-label="Search">
+            </form>
+        </div>
+    </section>
+
+
+
+
+    <!-- ------------------ -->
+
+
+    <section class="services" id="services">
+        <h2>Popular Concerts</h2>
+        <h4 style="color: #e98154;">Coming Soon...</h4>
+        <ul class="cards">
+            <li class="card">
+                <img src="https://i.postimg.cc/kX3Z7bpN/1100x700-1.webp" alt="img">
+                <h5 style="color: #69e753;">SZA -SOS Tour</h5>
+                <p style="color: #64e74d;">Delta Center <br>TBD</p>
+            </li>
+            <li class="card">
+                <img src="https://i.postimg.cc/qRKLFm0P/1100x700-2.webp" alt="img">
+                <h5 style="color: #924ece;">Taylor Swift</h5>
+                <p style="color: #924ece;">Hard Rock Stadium <br>TBD</p>
+            </li>
+            <li class="card">
+                <img src="https://i.postimg.cc/fyx8V8rc/1100x700-3.webp" alt="img">
+                <h5 style="color: #fbff8f;">Eagles: The Long Goodbye</h5>
+                <p style="color: #fbff8f;">Rocket Mortgage FieldHouse <br>TBD</p>
+            </li>
+            <li class="card">
+                <img src="https://i.postimg.cc/vZmvy8bL/1100x700-4.webp" alt="img">
+                <h5 style="color: #ff1db4;">U2</h5>
+                <p style="color: #ff1db4;">MSG Sphere <br>TBD</p>
+            </li>
+            <li class="card">
+                <img src="https://i.postimg.cc/Xq8wMmPz/1100x700-5.webp" alt="img">
+                <h5 style="color: #35e4ff;">Aerosmith</h5>
+                <p style="color: #35e4ff;">Amerant Bank Arena, FL <br>TBD</p>
+            </li>
+            <li class="card">
+                <img src="https://i.postimg.cc/qM181fyt/1100x700.webp" alt="img">
+                <h5 style="color: #ff6d6d;">Travis Scott</h5>
+                <p style="color: #ff6d6d;">T - Mobile Center <br>TBD</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- --------------------------- -->
+
+    <div class="container">
+        <h2 class="me-2" id="r4">Categories</h2>
+
+        <div (click)="concertCategory(1)" class="card">
+            <div class="img">
+                <img src="https://i.postimg.cc/JhLBFV2q/classic-rock-card-2x.webp">
+            </div>
+            <div class="top-text">
+                <div class="name">
+                    POP
+                </div>
+
+            </div>
+        </div>
+        <div (click)="concertCategory(2)" class="card">
+            <div class="img">
+                <img src="https://i.postimg.cc/Kzc3Z7F3/techno-card-2x.webp">
+            </div>
+            <div class="top-text">
+                <div class="name">
+                    TECHNO
+                </div>
+
+            </div>
+
+        </div>
+        <div (click)="concertCategory(3)" class="card">
+            <div class="img">
+                <img src="https://i.postimg.cc/hGcfr8XZ/rap-card-2x.webp">
+            </div>
+            <div class="top-text">
+                <div class="name">
+                    RAP
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ------------------ -->
+
+
+    <section class="portfolio" id="portfolio">
+        <!-- <h2>Book Now</h2> -->
+        <div *ngFor="let i of concertCategories | search:searchString:'Cname'" class="card">
+            <img src={{i.image}} class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title">{{i.Cname}}</h5>
+                <p class="card-text">{{i.venue}}</p>
+                <p class="card-text">{{i.dateTime}}</p>
+                <p class="card-text"><small>$ {{i.price}}</small></p>
+                <button (click)="concertview(i._id)" class="btn btn mt-2 ms-2 p-2">Book Now</button>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Concerts</h2>
+        <div class="row company-info">
+            <h3>The History of Concerts</h3>
+            <p> From orchestras and bands to pop singers, symphonies, and more, concerts have been providing folks with
+                musical entertainment for many, many years. In fact, the first concerts began to pop up in the 17th
+                century, with many of these musical performances happening in colleges and even small homes around the
+                world. Early musicians included the likes of Mozart and Beethoven. Today, concerts range in all types of
+                genres, from hip-hop and country to jazz, folk, and more. Not only that, but concerts have grown to
+                include many different venues. Artists may perform at smaller, intimate clubs, huge outdoor arenas,
+                stadiums, and more.
+            </p>
+        </div>
+        <br>
+        <div class="row mission-vision">
+            <h3>The Live Concert Experience</h3>
+            <p>Live concerts have certainly evolved throughout the years. Back in the 17th century, musical performances
+                were much more informal and cost little, if anything, to attend. Today, concerts are quite the events!
+                Depending on the artist, you may be among swarms of other fans in the crowd, dancing and bopping to the
+                beat. Some shows are more informal, with outdoor standing-room only, while symphonies and orchestras may
+                be held in more traditional venues with assigned seating. The experience truly will depend on the
+                musician(s) you’re there to see! You may let your hair down and dance the night away or get ready to
+                dress up and enjoy a nice evening out. <br>
+
+            </p>
+        </div>
+        <br>
+        <div class="row">
+
+            <h3>Notable Performers</h3>
+            <p>Today, there are so many incredible live performers– from those who sing to those who play instruments
+                and, of course, those who do it all! Notable performers include Beyonce, Justin Timberlake, Ariana
+                Grande, Tim McGraw, and many, many more. Of course, popular artists from days past include Prince,
+                Michael Jackson, and Whitney Houston. With the growth of technology and the music industry overall,
+                there are tons of up-and-coming musicians, including those who find fame via the internet. One of the
+                most well-known YouTube success stories is that of Justin Bieber. No matter what genre you enjoy, there
+                is someone who is ready to put on a show for you!</p>
+        </div>
+
+    </section>
+
+
+
+    <footer>
+        <a routerLink="/user-home" class="footer-title">
+            <h6> Back to Home</h6>
+        </a>
+        <div class="footer-items">
+            <ul>
+                <h3>GET TO KNOW US</h3>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Rare Impact</a></li>
+                <li><a href="#">ConcertWave Bio</a></li>
+            </ul>
+            <ul>
+                <h3>CONNECT WITH US</h3>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+
+            <ul>
+                <h3>CUSTOMER SERVICE</h3>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Start a U.S. Return</a></li>
+                <li><a href="#">U.S. Gift Card Balance</a></li>
+                <li><a href="#">ConcertWave App Download</a></li>
+                <li><a href="#">Accessibility</a></li>
+            </ul>
+        </div>
+
+
+
+
+
+    </footer>
+
+    <div class="footerL">
+        <span>Copyright ©ConcertWave 2023</span>
+
+    </div>
+
+</body>
+
+
+<!-- -------------- -->
+<div class="modal" id="profilecheck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Hi {{user}} </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/Nf6RGnyy/Follow-for-more.jpg" alt="Your Image" class="modal-image"
+                    style="width: 30%;">
+                <p><i class="fa-solid fa-user me-3"></i>{{user}}</p>
+                <p><i class="fa-solid fa-envelope me-3"></i>{{email}}</p>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal {
+        margin-left: 400px;
+    }
+
+    .modal-header {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 15px;
+    }
+
+    .modal-title {
+        margin: 0;
+    }
+
+    .modal-body {
+
+        padding: 15px;
+        text-align: center;
+
+    }
+
+    .modal-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .modal-footer {
+        background-color: #000000;
+        border-top: 1px solid #ddd;
+        padding: 10px 15px;
+    }
+
+    .btn-close {
+        color: #333;
+    }
+
+    .btn-primary {
+        background-color: #da5e29;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .btn-secondary {
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+
+    }
+
+    .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgb(255, 255, 255);
+    }
+</style>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Philosopher', sans-serif;
+    }
+
+
+    body {
+        background: #000000;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #00000000;
+    }
+
+
+
+    .navbar {
+        display: flex;
+        padding: 0 10px;
+        max-width: 1300px;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: all 0.4s ease;
+    }
+
+    .sticky {
+        background-color: #000000;
+        padding: 0px 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .navbar input#menu-toggler {
+        display: none;
+    }
+
+    .navbar #hamburger-btn {
+        cursor: pointer;
+        display: none;
+    }
+
+    .navbar .all-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar .all-links li {
+        position: relative;
+        list-style: none;
+    }
+
+    .navbar .logo a {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 2.9rem;
+        text-decoration: none;
+    }
+
+    header a {
+        margin-left: 40px;
+        text-decoration: none;
+        color: #ffffff;
+        height: 100%;
+        padding: 20px 0;
+        display: inline-block;
+    }
+
+    header a:hover,
+    footer a:hover {
+        color: #ddd;
+    }
+
+    .homepage {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        background: url("https://i.postimg.cc/kggT5gMg/amin-hasani-6-Mtgrh-Seil4-unsplash.jpg");
+        background-position: center 65%;
+        background-size: cover;
+        background-attachment: fixed;
+        opacity: 0.7;
+    }
+
+    .homepage::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .homepage .content {
+        display: flex;
+        height: 85%;
+        z-index: 3;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* font-family: 'Rock Salt', cursive; */
+
+    }
+
+    .homepage .content h1 {
+        /* margin-top: 200px; */
+        font-size: 50px;
+        color: #da5e29;
+        font-weight: 900;
+        margin-bottom: 10px;
+        /* font-family: 'Rock Salt', cursive; */
+
+    }
+
+    .homepage .content .text {
+        margin-bottom: 50px;
+        color: #da5e29;
+        font-size: 20px;
+        text-align: center;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+    }
+
+    .content form {
+        color: #da5e29;
+        width: 100%;
+        display: block;
+        text-transform: uppercase;
+        font-size: 18px;
+        margin: 0 10px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        background: #fff;
+        border: 2px solid #fff;
+        transition: 0.4s ease;
+        margin-top: -20px;
+        text-decoration: none;
+    }
+
+    .content input {
+        box-shadow: none;
+        border: none;
+        text-align: center;
+    }
+
+    .content a:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 80px 0 0;
+    }
+
+    section h2 {
+        margin-top: 15px;
+        font-size: 55px;
+        color: #da5e29;
+        font-weight: 900;
+    }
+
+    section>p {
+        text-align: center;
+    }
+
+    section .cards {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin-top: 50px;
+        padding: 0 10px;
+        justify-content: space-between;
+    }
+
+    section.about {
+        margin: 0 auto;
+        max-width: 1200px;
+        color: #ffffff9a;
+        margin-bottom: 50px;
+
+    }
+
+    .about .company-info {
+        margin-top: 30px;
+    }
+
+    .about h3 {
+        margin: 20px 0 10px;
+        color: #ee9b77b1;
+    }
+
+
+
+    section .cards .card {
+        background: #000000;
+        /* margin-top: 20px; */
+        padding: 0px 15px;
+        list-style: none;
+        border-radius: 5px;
+        box-shadow: 0px 5px 10px rgb(0, 0, 0);
+        margin-bottom: 40px;
+        width: calc(100% / 3 - 30px);
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .portfolio h2 {
+        margin-top: 80px;
+    }
+
+    .portfolio .card {
+        width: 80%;
+        height: 370px;
+        /* height: 0px; */
+        margin-top: 100px;
+        padding: 0 0 20px;
+        border: #000000 5px solid;
+        background-color: #000000;
+        box-shadow: 0px 15px 55px rgb(224, 148, 72);
+
+
+    }
+
+    .portfolio .card-img {
+        width: 100%;
+        height: 370px;
+        padding-bottom: 10px;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 7px;
+
+    }
+
+    .portfolio .card-title {
+        color: #ffffff;
+        font-weight: 900;
+        padding-top: 25px;
+        font-size: 25px;
+        padding-left: 15px;
+    }
+
+    .portfolio .card-text {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 500;
+        padding-left: 15px;
+    }
+
+    .portfolio .btn {
+        border: 1px dotted rgb(255, 250, 250);
+        color: #ffffff;
+        border-radius: 10px;
+    }
+
+    .services .card img {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+        border-radius: 100%;
+        object-fit: cover;
+        box-shadow: 0px 7px 10px rgb(255, 255, 255);
+
+    }
+
+    .services .card img:hover {
+        height: 230px;
+        box-shadow: 5px 12px 10px rgb(255, 255, 255);
+    }
+
+
+
+
+    .cards .card p {
+        padding: 0 15px;
+        margin-top: 5px;
+    }
+
+    .about .row {
+        padding: 0 10px;
+    }
+
+
+
+
+    @media screen and (max-width: 860px) {
+        .navbar .all-links {
+            position: fixed;
+            left: -100%;
+            width: 300px;
+            display: block;
+            height: 100vh;
+            top: 75px;
+            background: #333;
+            transition: left 0.3s ease;
+        }
+
+        .navbar #menu-toggler:checked~.all-links {
+            left: 0;
+        }
+
+        .navbar .all-links li {
+            font-size: 18px;
+        }
+
+        .navbar #hamburger-btn {
+            display: block;
+        }
+
+        section h2 {
+            text-align: center;
+        }
+
+        section .cards .card {
+            width: calc(100% / 2 - 15px);
+            margin-bottom: 30px;
+        }
+
+        .homepage .content h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .portfolio .card {
+            height: 370px;
+
+        }
+
+        .portfolio .card-img {
+            height: 390px;
+
+        }
+
+
+        .homepage .content .text {
+            font-size: 17px;
+
+        }
+
+        .content a {
+            font-size: 17px;
+            padding: 9px 20px;
+        }
+
+        .modal {
+            margin-left: 0;
+        }
+
+        footer a {
+            height: 0;
+        }
+    }
+
+    @media screen and (max-width: 560px) {
+        section .cards .card {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+
+    .container {
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 130px;
+        margin-left: 50px;
+
+
+    }
+
+    #r4 {
+        color: #da5e29;
+        font-size: 55px;
+        font-weight: 900;
+
+    }
+
+    .container .card {
+        height: 250px;
+        max-width: 350px;
+        margin: 0 20px;
+        background: white;
+        transition: 0.4s;
+        box-shadow: 2px 20px 5px rgb(255, 255, 255);
+
+    }
+
+    .container .card:hover {
+        height: 270px;
+        box-shadow: 5px 25px 10px rgb(255, 255, 255);
+    }
+
+
+    .container .card .img {
+        height: 200px;
+        width: 100%;
+    }
+
+    .container .card .img img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+
+    }
+
+    .container .card .top-text {
+        padding: 7px;
+        margin-top: 5px;
+    }
+
+    .container .card .top-text .name {
+        font-size: 25px;
+        font-weight: 600;
+        color: #000000;
+    }
+
+    .container .card .top-text p {
+        font-size: 20px;
+        font-weight: 600;
+        color: #da5e29;
+        line-height: 20px;
+    }
+
+
+
+
+    @media screen and (max-width: 978px) {
+        .container {
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin-left: 0;
+        }
+
+        #r4 {
+
+            margin-bottom: 30px;
+
+        }
+
+        .container .card {
+            max-width: 700px;
+            margin: 20px 0;
+        }
+    }
+
+    footer {
+        background-color: #000000;
+        padding: 25px;
+        margin-left: 18px;
+
+
+    }
+
+    /* Footer */
+    .footer-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+        color: #ee8355;
+        font-size: 0.875rem;
+        font-weight: 600;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .footer-items {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 0 auto;
+        background: #000000;
+    }
+
+    .footer-items h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ee8355;
+        margin: 20px 0 10px 0;
+    }
+
+    .footer-items ul {
+        list-style: none;
+        margin-bottom: 20px;
+    }
+
+    .footer-items li a {
+        color: #ee8355;
+        font-size: 0.875rem;
+    }
+
+    .footer-items li a:hover {
+        text-decoration: underline;
+    }
+
+
+    .footerL {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: #000000;
+        padding: 20px 0;
+    }
+
+    .footerL div {
+        padding: 0 10px;
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footerL span {
+        color: #ee8355;
+    }
+
+    .footerL a {
+        padding: 0;
+    }
+</style>
