@@ -13,7 +13,7 @@ export class ConcertService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl = "http://localhost:5757"
+  baseUrl = "https://concertwaveserver.onrender.com"
 
 
   //api adminlogin
